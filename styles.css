@@ -1,0 +1,43 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    font-family: "Nunito", sans-serif;
+}
+
+.container h1 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 9rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 3px;
+}
+
+#name {
+    border-color: none;
+    color: none;
+}
+
+.fa-user {
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .container h1 {
+        font-size: 6rem;
+    }
+}
