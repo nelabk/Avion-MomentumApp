@@ -4,40 +4,181 @@
     box-sizing: border-box;
 }
 
+:root {
+    --font-weight-regular: 500;
+    --transform-center: translate(-50%);
+    --font-size-regular: 2rem;
+    --font-size-small: 1rem;
+}
+
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("./images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("./images/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-    font-family: "Nunito", sans-serif;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 
-.container h1 {
+/* time and date */
+
+#current-time, #current-date {
     position: absolute;
-    top: 30%;
     left: 50%;
-    transform: translate(-50%);
-    font-size: 9rem;
-    font-weight: 500;
+    transform: var(--transform-center);
     color: white;
     letter-spacing: 3px;
 }
 
-#name {
-    border-color: none;
-    color: none;
+#current-time {
+    top: 30%;
+    font-size: 9rem;
+    font-weight: var(--font-weight-regular);
 }
 
-.fa-user {
-    color: white;
-    font-size: 2rem;
-    padding: 1rem;
+#current-date {
+    top: 28%;
+    font-size: var(--font-size-regular);
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
+/* greeting */
+
+#greeting-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: var(--transform-center);
+    text-align: center;
+    white-space: nowrap;
+}
+
+#greeting, #period {
+    color: white;
+    font-size: 3rem;
+    font-weight: var(--font-weight-regular)
+}
+
+#submit-btn {
+    display: none;
+}
+
+#name, #goal-input {
+    flex-wrap: wrap;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px white solid;
+    cursor: auto;
+    caret-color: whitesmoke;
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+#name {
+    font-size: 3rem;
+    font-weight: var(--font-weight-regular);
+    width: 12rem;
+}
+
+#name:focus, #goal-input:focus {
+    outline: none;
+}
+
+/* main goal */
+
+#goal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: var(--transform-center);
+    text-align: center;
+    white-space: nowrap;
+}
+
+#goal-title {
+    color: white;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+
+#goal-input {
+    width: 35rem;
+    font-size: var(--font-size-regular);
+    text-align: center;
+}
+
+/* quote */
+#quote {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: var(--transform-center);
+    width: 80%;
+    text-align: center;
+    color: white;
+}
+
+/* media queries */
 
 @media screen and (max-width: 768px) {
-    .container h1 {
+    #current-time {
         font-size: 6rem;
+    }
+
+    #current-date, #goal-title, #goal-input {
+        font-size: 1.5rem;
+
+    }
+    #goal-input {
+        width: 25rem;
+    }
+
+    #greeting, #period, #name {
+        font-size: 1.5rem;
+    }
+
+    #quote {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #current-time {
+        font-size: 5rem;
+    }
+
+    #current-date, #goal-title, #goal-input {
+        font-size: var(--font-size-small);
+    }
+
+    #goal-input {
+        width: 17rem;
+    }
+
+    #greeting, #period, #name {
+        font-size: var(--font-size-small);
+    }
+
+    #quote {
+        font-size: 10px;
     }
 }
