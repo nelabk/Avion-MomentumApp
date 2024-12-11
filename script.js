@@ -7,10 +7,16 @@ const goalInputEl = document.getElementById('goal-input')
 const goalFormEl = document.getElementById('goal')
 const goalEl = document.getElementById('goal-title')
 const quoteEl = document.getElementById('quote')
+const taskFormEl = document.querySelector('.tasks')
+const taskInputEl = document.getElementById('task-input')
+const taskListEl =document.getElementById('task-list')
+const myBtnEl = document.getElementById('myBtn')
+
 
 const appState = {
     username: "",
     goal: "",
+    tasks: []
 }
 
 const AM_greeting_text = 'Good morning, '
@@ -31,6 +37,34 @@ function showElement(element, content) {
     // greetingEl.classList.add("fade-in");
     element.innerHTML = content;
 }
+
+function renderElement(element, tasks) {
+    element.innerHTML = "";
+    tasks.forEach((task) => {
+        const newTaskEl = document.createElement('li');
+
+        const checkboxEl = document.createElement('input');
+        checkboxEl.type = 'checkbox';
+        checkboxEl.checked = task.completed;
+
+        checkboxEl.addEventListener('change', () => {
+            task.completed = checkboxEl.checked;
+            newTaskEl.classList.toggle('disabled', task.completed);
+        });
+
+        const taskTextEl = document.createElement('span');
+        taskTextEl.textContent = task.text;
+
+        if (task.completed) {
+            newTaskEl.classList.add('disabled');
+        }
+
+        newTaskEl.appendChild(checkboxEl);
+        newTaskEl.appendChild(taskTextEl);
+        element.appendChild(newTaskEl);
+    });
+}
+
 
 // greeting
 
@@ -78,6 +112,29 @@ fetch("http://api.quotable.io/quotes/random").then(function (response) {
 }) .then (function (data) {
     showElement(quoteEl, `"${data[0].content}"`)
 }) 
+
+
+// tasks
+
+taskFormEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const taskInputValue = taskInputEl.value.trim();
+
+    if (taskInputValue) {
+        appState.tasks.push({text: taskInputValue, completed: false}); //the task is not yest finished; if finished === true
+        renderElement(taskListEl, appState.tasks);
+        taskInputEl.value = "";
+    }
+})
+
+taskInputEl.addEventListener('input', resizeInput)
+resizeInput.call(taskInputEl)
+
+// task modal
+myBtnEl.addEventListener('click', () => {
+    taskFormEl.classList.toggle('tasks-show');
+    console.log('jhdhf');
+})
 
 
 

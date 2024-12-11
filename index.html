@@ -20,7 +20,7 @@
             <h1 id="greeting">Good morning, </h1>
             <input type="text" id="name">
             <h1 id="period">.</h1>
-            <button id="submit-btn" type ="submit">Submit</button>
+            <button class="submit-btn" type="submit">Submit</button>
         </form>
     </div>
 
@@ -28,14 +28,27 @@
         <form id="goal">
             <h1 id="goal-title">What is your main goal for today?</h1>
             <input type="text" id="goal-input">
-            <button id="submit-btn" type="submit">Submit</button>
+            <button class="submit-btn" type="submit">Submit</button>
         </form>
     </div>
 
     <p id="quote"></p>
     
-    <div class="to-do-list">
-        <h2>To-Do List<</h2>
+    <div class="modal-tasks">
+        <form class="tasks">
+            <h2>Today<i class="fa-solid fa-list-check"></i></h2>
+            <ul id="task-list">
+            </ul>
+            <div class="row">
+                <input type="text" id="task-input" placeholder="New Task">
+                <button class="submit-btn" type="submit">+</button>
+            </div>
+        </form>
+        <div>
+            <button id="myBtn">Tasks</button>
+        </div>
     </div>
+   
+    
 </body>
 </html>

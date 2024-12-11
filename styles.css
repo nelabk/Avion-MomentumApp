@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    list-style: none;
 }
 
 :root {
@@ -67,7 +68,7 @@ body {
     font-weight: var(--font-weight-regular)
 }
 
-#submit-btn {
+.submit-btn {
     display: none;
 }
 
@@ -137,6 +138,78 @@ body {
     color: white;
 }
 
+/* tasks */
+.tasks {
+    width: 100%;
+    background: rgb(0, 0, 0, 0.7);
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    display: none;
+}
+
+.tasks-show {
+    display: block;
+}
+
+#myBtn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-regular);
+    color: white;
+}
+
+h2 {
+    color: white;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+i {
+    margin-left: 5px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#task-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+    padding: 10px 0;
+    font-size: var(--font-size-small);
+}
+
+#task-list {
+    color: white;
+    cursor: pointer;
+}
+
+.disabled {
+    display: flex;
+    text-decoration: line-through;
+}
+
+
+.modal-tasks {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+
+
 /* media queries */
 
 @media screen and (max-width: 768px) {
@@ -170,6 +243,7 @@ body {
         font-size: var(--font-size-small);
     }
 
+
     #goal-input {
         width: 17rem;
     }
@@ -181,4 +255,13 @@ body {
     #quote {
         font-size: 10px;
     }
+
+    .tasks {
+        max-width: 150px;
+    }
+
+    #myBtn, h2 {
+        font-size: var(--font-size-small);
+    }
+    
 }
