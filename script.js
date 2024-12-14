@@ -11,6 +11,10 @@ const taskFormEl = document.querySelector('.tasks')
 const taskInputEl = document.getElementById('task-input')
 const taskListEl =document.getElementById('task-list')
 const myBtnEl = document.getElementById('myBtn')
+const addQuoteBtnEl = document.getElementById('addQuote-btn')
+const formQuoteEl = document.querySelector('.form-quote')
+const quoteInputEl = document.getElementById('quoteInput')
+const submitQuoteEl = document.getElementById('submit-btn-quote')
 
 
 const appState = {
@@ -108,10 +112,30 @@ goalFormEl.addEventListener('submit', (e) => {
 // quotes
 
 fetch("http://api.quotable.io/quotes/random").then(function (response) {
-    return response.json ()
-}) .then (function (data) {
+    return response.json();
+    }) .then(function (data) {
     showElement(quoteEl, `"${data[0].content}"`)
-}) 
+})
+
+// my own quote modal
+
+addQuoteBtnEl.addEventListener('click', () => {
+    formQuoteEl.classList.toggle('tasks-show');
+})
+
+submitQuoteEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    const customQuote = quoteInputEl.value.trim(); 
+
+    if (customQuote) {
+        showElement(quoteEl, `"${customQuote}"`); 
+        quoteInputEl.value = ""; 
+        formQuoteEl.classList.remove('tasks-show'); 
+    }
+});
+
+quoteInputEl.addEventListener('input', resizeInput)
+resizeInput.call(quoteInputEl)
 
 
 // tasks
@@ -133,8 +157,9 @@ resizeInput.call(taskInputEl)
 // task modal
 myBtnEl.addEventListener('click', () => {
     taskFormEl.classList.toggle('tasks-show');
-    console.log('jhdhf');
 })
+
+
 
 
 

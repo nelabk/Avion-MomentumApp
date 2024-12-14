@@ -68,7 +68,7 @@ body {
     font-weight: var(--font-weight-regular)
 }
 
-.submit-btn {
+.submit-btn, #submit-btn-quote {
     display: none;
 }
 
@@ -133,13 +133,37 @@ body {
     top: 90%;
     left: 50%;
     transform: var(--transform-center);
-    width: 80%;
+    width: 70%;
     text-align: center;
     color: white;
+    font-size: var(--font-size-small);
+}
+
+#addQuote-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    font-size: 1.2rem;
+}
+
+#addQuote-btn:hover, #myBtn:hover {
+    color: black;
+}
+
+.modal-quote {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    left: 10px;
+    bottom: 10px;
+    display: flex;
 }
 
 /* tasks */
-.tasks {
+.tasks, .form-quote {
     width: 100%;
     background: rgb(0, 0, 0, 0.7);
     max-width: 300px;
@@ -152,12 +176,12 @@ body {
     display: block;
 }
 
-#myBtn {
+#myBtn, #addQuote-btn {
     background-color: transparent;
     border: none;
     font-size: 1.2rem;
-    font-weight: var(--font-weight-regular);
     color: white;
+    cursor: pointer;
 }
 
 h2 {
@@ -172,13 +196,13 @@ i {
     margin-left: 5px;
 }
 
-.row {
+.row, #myOwnQuote {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#task-input {
+#task-input, #quoteInput {
     flex: 1;
     border: none;
     background: transparent;
@@ -191,6 +215,7 @@ i {
 #task-list {
     color: white;
     cursor: pointer;
+    word-break: break-all;
 }
 
 .disabled {
@@ -201,8 +226,8 @@ i {
 
 .modal-tasks {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 10px;
+    bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -226,12 +251,22 @@ i {
     }
 
     #greeting, #period, #name {
-        font-size: 1.5rem;
+        font-size: var(--font-size-regular);
+    }
+
+    #name {
+        width: 8rem;
     }
 
     #quote {
         font-size: 12px;
     }
+
+    #myBtn, #addQuote-btn {
+        font-size: var(--font-size-small);
+    }
+
+
 }
 
 @media screen and (max-width: 480px) {
@@ -249,19 +284,24 @@ i {
     }
 
     #greeting, #period, #name {
-        font-size: var(--font-size-small);
+        font-size: 1.5rem;
+    }
+
+    #name {
+        width: 5rem;
     }
 
     #quote {
-        font-size: 10px;
+        font-size: 12px;
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: var(--transform-center);
+        width: 70%;
     }
 
-    .tasks {
-        max-width: 150px;
-    }
-
-    #myBtn, h2 {
-        font-size: var(--font-size-small);
+    .task-item {
+        font-size: 0.75rem;
     }
     
 }
